@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SmartSwitch.COMMON\SmartSwitch.COMMON.csproj" />
+    <ProjectReference Include="..\SmartSwitch.DAL\SmartSwitch.DAL.csproj" />
+  </ItemGroup>
+
+</Project>

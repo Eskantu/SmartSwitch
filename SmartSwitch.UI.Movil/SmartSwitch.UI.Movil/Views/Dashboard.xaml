@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:microchart="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             mc:Ignorable="d"
+              xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             xmlns:custom="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             xmlns:custom1="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasBackButton="False"
+             x:Class="SmartSwitch.UI.Movil.Views.Dashboard" BackgroundImageSource="backDashboard.png">
+        <StackLayout Margin="0,30,0,0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.3*"/>
+                    <ColumnDefinition Width="0.3*"/>
+                    <ColumnDefinition Width="0.3*"/>
+                </Grid.ColumnDefinitions>
+                <material:MaterialButton Grid.Column="0" VerticalOptions="Center" Clicked="MaterialButton_Clicked" ButtonType="Text" Margin="0,0,0,0" PressedBackgroundColor="Transparent"  ImageSource="backPage.png" TextColor="White" HorizontalOptions="Start"/>
+                <Label VerticalOptions="Center" Grid.Column="1" Text="My Home" FontSize="Title" TextColor="White" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
+                <custom1:CircleImage VerticalOptions="Center"  Grid.Column="2" WidthRequest="60" HeightRequest="60" Source="user.png" Margin="0,5,0,0"/>
+            </Grid>
+            <CarouselView CurrentItemChanged="Datos_CurrentItemChanged" Margin="0,0,0,0"   x:Name="Datos" HeightRequest="240">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <material:MaterialCard IsClickable="True" Clicked="MaterialCard_Clicked" WidthRequest="400" BackgroundColor="Transparent"  CornerRadius="25" Elevation="16" HeightRequest="600" HorizontalOptions="End">
+                            <StackLayout>
+                                <Grid HorizontalOptions="CenterAndExpand">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="0"  HorizontalOptions="CenterAndExpand" TextColor="White" FontSize="Large" FontAttributes="Bold" Text="{Binding NameRoom}"/>
+                                    <Image WidthRequest="56" HeightRequest="56" Source="{Binding ImageRoom}" Grid.Column="0" Grid.Row="0" VerticalOptions="CenterAndExpand" Grid.RowSpan="3"/>
+                                    <Label Margin="20,0,0,0" Grid.Row="1" Grid.Column="1" TextColor="White" Text="Temp" FontAttributes="Bold"/>
+                                    <Label Margin="20,0,0,0" Grid.Row="1" Grid.Column="2" TextColor="White" Text="Energy" FontAttributes="Bold"/>
+                                    <Label Margin="20,0,0,0" Grid.Row="1" Grid.Column="3" TextColor="White" Text="Contacts" FontAttributes="Bold"/>
+
+                                    <Label Margin="20,0,0,0" HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="1" TextColor="White" Text="{Binding  TempAverage, StringFormat='{0:F1}°C'}"  />
+                                    <Label Margin="20,0,0,0" HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="2" TextColor="White" Text="{Binding EnergyConsumption}" />
+                                    <Label Margin="20,0,0,0" HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="3" TextColor="White" Text="{Binding Contacts}"/>
+                                </Grid>
+                            </StackLayout>
+                        </material:MaterialCard>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            <ScrollView Margin="0,0,0,0">
+                <StackLayout>
+
+                    <material:MaterialCard BorderColor="Transparent" x:Name="chart1" CornerRadius="15" Margin="5,0,5,0" HeightRequest="200" Elevation="10" >
+                        <material:MaterialCard.BackgroundColor>
+                            <Color x:FactoryMethod="FromHsla">
+                                <x:Arguments>
+                                    <x:Double>0</x:Double>
+                                    <x:Double>0</x:Double>
+                                    <x:Double>0</x:Double>
+                                    <x:Double>0.3</x:Double>
+                                </x:Arguments>
+                            </Color>
+                        </material:MaterialCard.BackgroundColor>
+                        <microchart:ChartView BackgroundColor="Transparent" x:Name="chartEnergy"/>
+                    </material:MaterialCard>
+                    <material:MaterialCard  BorderColor="Transparent" x:Name="chart2" CornerRadius="15" Margin="5,0,5,0" HeightRequest="200" Elevation="10" >
+                        <material:MaterialCard.BackgroundColor>
+                            <Color x:FactoryMethod="FromHsla">
+                                <x:Arguments>
+                                    <x:Double>0</x:Double>
+                                    <x:Double>0</x:Double>
+                                    <x:Double>0</x:Double>
+                                    <x:Double>0.3</x:Double>
+                                </x:Arguments>
+                            </Color>
+                        </material:MaterialCard.BackgroundColor>
+                        <microchart:ChartView BackgroundColor="Transparent" x:Name="chartTemp"/>
+                    </material:MaterialCard>
+                    <material:MaterialCard BorderColor="Transparent" x:Name="chart3"  CornerRadius="15" Margin="5,0,5,0" HeightRequest="200" Elevation="10" >
+                        <material:MaterialCard.BackgroundColor>
+                            <Color x:FactoryMethod="FromHsla">
+                                <x:Arguments>
+                                    <x:Double>0</x:Double>
+                                    <x:Double>0</x:Double>
+                                    <x:Double>0</x:Double>
+                                    <x:Double>0.3</x:Double>
+                                </x:Arguments>
+                            </Color>
+                        </material:MaterialCard.BackgroundColor>
+                        <microchart:ChartView BackgroundColor="Transparent" x:Name="chartHuemdad"/>
+                    </material:MaterialCard>
+                    <material:MaterialCard BorderColor="Transparent" x:Name="chart4" CornerRadius="15" Margin="5,0,5,0" HeightRequest="200" Elevation="10" >
+                        <material:MaterialCard.BackgroundColor>
+                            <Color x:FactoryMethod="FromHsla">
+                                <x:Arguments>
+                                    <x:Double>0</x:Double>
+                                    <x:Double>0</x:Double>
+                                    <x:Double>0</x:Double>
+                                    <x:Double>0.3</x:Double>
+                                </x:Arguments>
+                            </Color>
+                        </material:MaterialCard.BackgroundColor>
+                        <microchart:ChartView BackgroundColor="Transparent" x:Name="chartContactos"/>
+                    </material:MaterialCard>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+
+</ContentPage>

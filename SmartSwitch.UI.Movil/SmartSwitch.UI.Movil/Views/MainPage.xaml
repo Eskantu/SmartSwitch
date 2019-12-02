@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            mc:Ignorable="d"
+            xmlns:views="clr-namespace:SmartSwitch.UI.Movil.Views"
+            x:Class="SmartSwitch.UI.Movil.Views.MainPage"
+                  xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material" material:MaterialNavigationPage.AppBarColor="#2c3e50" material:MaterialNavigationPage.AppBarTitleTextFontFamily="Roboto" material:MaterialNavigationPage.AppBarTitleTextFontSize="14" material:MaterialNavigationPage.StatusBarColor="#1B3147" material:MaterialNavigationPage.AppBarTitleTextAlignment="Start"
+                 >
+
+    <MasterDetailPage.Master>
+        <views:MenuPage />
+    </MasterDetailPage.Master>
+
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+            <NavigationPage.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource">
+                    <On Platform="iOS" Value="tab_feed.png"/>
+                </OnPlatform>
+            </NavigationPage.Icon>
+            <x:Arguments>
+                <views:Dashboard/>
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+    
+</MasterDetailPage>

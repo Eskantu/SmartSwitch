@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+               xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             x:Class="SmartSwitch.UI.Movil.Views.Login" BackgroundImageSource="back.png"
+             NavigationPage.HasNavigationBar="False">
+    <ScrollView>
+
+        <StackLayout Margin="0,30,0,0">
+            <material:MaterialButton Clicked="MaterialButton_Clicked_1"  ButtonType="Text" Margin="0,0,0,0" PressedBackgroundColor="Transparent"  ImageSource="backPage.png" TextColor="White" HorizontalOptions="Start"/>
+            <Image Margin="0,80,0,20" Source="LoginLogo.png" />
+            <Label Text="Smart Switch Login" HorizontalOptions="CenterAndExpand" TextColor="White" FontSize="Large" FontAttributes="Bold"/>
+            <material:MaterialCard Elevation="40" WidthRequest="50" CornerRadius="25" BackgroundColor="Transparent">
+                <StackLayout>
+                    <material:MaterialTextField  WidthRequest="50" ErrorText="Username empty" Placeholder="username" BackgroundColor="Transparent" TextColor="White" FloatingPlaceholderColor="White"   InputType="Text" FloatingPlaceholderEnabled="True" IsTextPredictionEnabled="True" PlaceholderColor="#E4E4E4" UnderlineColor="White" AlwaysShowUnderline="True"/>
+                    <material:MaterialTextField BackgroundColor="Transparent" ErrorText="password empty" Placeholder="password"  InputType="Password" TextColor="White" FloatingPlaceholderEnabled="True" IsTextPredictionEnabled="True" UnderlineColor="White" PlaceholderColor="#E4E4E4" AlwaysShowUnderline="True"/>
+                    <material:MaterialButton Clicked="MaterialButton_Clicked"  ButtonType="Elevated" BackgroundColor="#F54F82" PressedBackgroundColor="Black" Elevation="4,8"  AllCaps="False" CornerRadius="15" Text="Login" WidthRequest="80" FontAttributes="Bold" TextColor="White"/>
+                    <material:MaterialButton  ButtonType="Text" PressedBackgroundColor="Transparent" AllCaps="False" Text="Forgot your password?"  FontSize="Micro" FontAttributes="None" TextColor="White"/>
+                </StackLayout>
+            </material:MaterialCard>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             xmlns:views="clr-namespace:SmartSwitch.UI.Movil.Views"
+             mc:Ignorable="d"
+              BackgroundImageSource="LoginBack.png"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="SmartSwitch.UI.Movil.Views.Inicio">
+    <ScrollView>
+
+        <StackLayout  Margin="0,30,0,0" VerticalOptions="FillAndExpand">
+            <Image Margin="0,20,0,0" Source="Logo.png"/>
+            <material:MaterialButton Clicked="MaterialButton_Clicked" Margin="0,50,0,0" CornerRadius="20" HorizontalOptions="CenterAndExpand" ButtonType="Elevated" Elevation="8,16" TextColor="White" BackgroundColor="#223055" BorderColor="MediumPurple" WidthRequest="200" FontSize="Caption" FontAttributes="Bold" Text="Sign in"/>
+            <Image Source="Separador.png" HorizontalOptions="Center" WidthRequest="200"/>
+            <material:MaterialButton CornerRadius="25" HorizontalOptions="CenterAndExpand"  ButtonType="Text" TextColor="White" WidthRequest="150" Text="Sign Up"/>
+            <material:MaterialButton Text="Google" AllCaps="False" ButtonType="Text" WidthRequest="160" CornerRadius="25" BorderColor="White" HorizontalOptions="CenterAndExpand" ImageSource="google.png" TextColor="White" VerticalOptions="Center" />
+            <material:MaterialButton Text="Facebook" AllCaps="False" ButtonType="Text" WidthRequest="160" CornerRadius="25" BorderColor="White" HorizontalOptions="CenterAndExpand" ImageSource="facebook.png" TextColor="White" VerticalOptions="Center"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
